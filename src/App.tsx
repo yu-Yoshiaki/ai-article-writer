@@ -6,25 +6,30 @@ import { ThemeInput } from './components/ThemeInput';
 import { ArticleEditor } from './components/ArticleEditor';
 import { Preview } from './components/Preview';
 import { PricingPlans } from './components/subscription/PricingPlans';
+import { ProfilePage } from './components/user/ProfilePage';
+import { Layout } from './components/layout/Layout';
 import { useArticle } from './hooks/useArticle';
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <div className="min-h-screen bg-slate-900">
-          <Routes>
-            <Route path="/pricing" element={<PricingPlans />} />
-            <Route
-              path="/"
-              element={
-                <PrivateRoute>
-                  <MainApp />
-                </PrivateRoute>
-              }
-            />
-          </Routes>
-        </div>
+        <Routes>
+          <Route
+            path="/*"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <Routes>
+                    <Route path="/pricing" element={<PricingPlans />} />
+                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/" element={<MainApp />} />
+                  </Routes>
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+        </Routes>
       </AuthProvider>
     </Router>
   );
