@@ -21,8 +21,8 @@ export function SectionVariations({
           className={`
             relative p-4 rounded-lg border transition-all
             ${index === selectedVariation
-              ? 'border-blue-500 bg-blue-50 shadow-sm'
-              : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+              ? 'border-blue-400 bg-indigo-900 shadow-sm'
+              : 'border-indigo-800 hover:border-indigo-700 hover:bg-indigo-900'
             }
             cursor-pointer group
           `}
@@ -30,7 +30,7 @@ export function SectionVariations({
           <div className="flex items-start gap-3">
             <div className={`
               flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full border border-current
-              ${index === selectedVariation ? 'text-blue-500 bg-blue-100' : 'text-gray-400 group-hover:text-gray-500'}
+              ${index === selectedVariation ? 'text-blue-400 bg-indigo-800' : 'text-indigo-400 group-hover:text-indigo-300'}
             `}>
               {index === selectedVariation ? (
                 <Check className="w-4 h-4" />
@@ -38,7 +38,7 @@ export function SectionVariations({
                 <span className="text-sm">{index + 1}</span>
               )}
             </div>
-            <div className="flex-1 text-sm leading-relaxed">
+            <div className="flex-1 text-sm leading-relaxed text-gray-100">
               {variation}
             </div>
           </div>
