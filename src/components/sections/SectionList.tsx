@@ -21,7 +21,7 @@ export function SectionList({
   onAddSection
 }: SectionListProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6 py-4">
       <AddSectionButton onClick={() => onAddSection(-1)} />
       {sections.map((section: Section, index: number) => (
         <React.Fragment key={section.id}>

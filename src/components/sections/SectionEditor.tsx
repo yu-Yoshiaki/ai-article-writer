@@ -26,7 +26,7 @@ export function SectionEditor({
   onUpdateTitle,
 }: SectionEditorProps) {
   return (
-    <div className="border border-gray-200 rounded-lg p-4 space-y-4 bg-white">
+    <div className="border border-gray-200 rounded-lg p-4 space-y-4 bg-indigo-950 shadow-sm hover:shadow-md transition-shadow">
       <SectionHeader
         title={section.title}
         isFirst={isFirst}
@@ -45,7 +45,7 @@ export function SectionEditor({
       <div className="flex justify-end pt-2">
         <button
           onClick={onRegenerateVariations}
-          className="flex items-center gap-2 px-3 py-2 text-sm text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
+          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-300 hover:text-blue-200 hover:bg-indigo-900 rounded-lg transition-colors"
         >
           <RefreshCw className="w-4 h-4" />
           Generate More Variations
