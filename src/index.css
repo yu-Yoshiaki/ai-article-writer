@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    min-height: 100vh;
+    color: #e2e8f0;
+  }
+}
+
+@layer components {
+  .mystical-card {
+    @apply bg-slate-800/40 backdrop-blur-lg border border-slate-700/50 
+           shadow-lg shadow-slate-900/30 rounded-xl;
+  }
+
+  .mystical-input {
+    @apply bg-slate-800/30 border border-slate-600/50 text-slate-100
+           placeholder:text-slate-400 rounded-lg px-4 py-3
+           focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50
+           transition-all duration-300;
+  }
+
+  .mystical-button {
+    @apply bg-gradient-to-r from-purple-600 to-blue-600
+           hover:from-purple-500 hover:to-blue-500
+           text-white font-medium px-6 py-3 rounded-lg
+           shadow-lg shadow-purple-500/20
+           transform transition-all duration-300
+           hover:scale-105 hover:shadow-purple-500/30
+           active:scale-95;
+  }
+
+  .mystical-section {
+    @apply mystical-card p-6 space-y-4
+           hover:border-purple-500/30 transition-all duration-300;
+  }
+
+  .variation-card {
+    @apply relative p-4 rounded-lg border transition-all duration-300
+           hover:border-purple-400/50 cursor-pointer;
+  }
+
+  .variation-card.selected {
+    @apply border-purple-500 bg-purple-900/20;
+  }
+
+  .floating-effect {
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+}
