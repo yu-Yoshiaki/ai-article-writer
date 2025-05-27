@@ -19,6 +19,6 @@ export interface UserArticle {
   title: string;
   createdAt: string;
   updatedAt: string;
-  content: any; // Article type from your existing types
+  content: unknown; // Article type from your existing types
   isDraft: boolean;
 }

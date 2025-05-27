@@ -1,7 +1,7 @@
 import React from 'react';
 import { FileDown, FileText, Copy } from 'lucide-react';
 import type { Article } from '../types';
-import { formatArticleText } from '../utils/clipboard';
+// import { formatArticleText } from '../utils/clipboard';
 import { generateMarkdown } from '../utils/markdown';
 
 interface ExportOptionsProps {

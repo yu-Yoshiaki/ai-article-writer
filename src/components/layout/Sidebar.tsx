@@ -10,6 +10,7 @@ import {
   LogOut,
   CreditCard
 } from 'lucide-react';
+import Image from 'next/image';
 
 export function Sidebar() {
   const { user, signOut } = useAuth();
@@ -38,7 +39,7 @@ export function Sidebar() {
         {/* ユーザー情報 */}
         <div className="border-b border-slate-700/50 p-4">
           <div className="flex items-center space-x-3">
-            <img
+            <Image
               src={user?.photoURL || 'https://via.placeholder.com/40'}
               alt={user?.displayName || 'User'}
               className="size-10 rounded-full"

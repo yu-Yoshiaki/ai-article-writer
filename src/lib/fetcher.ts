@@ -1,5 +1,5 @@
 export class FetchError extends Error {
-  info?: any;
+  info?: unknown;
   status?: number;
 }
 
@@ -7,13 +7,13 @@ export const fetcher = async (url: string, options?: RequestInit) => {
   const res = await fetch(url, {
     ...options,
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       ...options?.headers,
     },
   });
 
   if (!res.ok) {
-    const error = new FetchError('An error occurred while fetching the data.');
+    const error = new FetchError("An error occurred while fetching the data.");
     error.info = await res.json().catch(() => null);
     error.status = res.status;
     throw error;

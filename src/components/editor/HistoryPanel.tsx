@@ -50,7 +50,7 @@ export function HistoryPanel() {
 
   return (
     <div className="space-y-3 p-4">
-      {mockHistory.map((item, index) => (
+      {mockHistory.map((item, _index) => (
         <div
           key={item.id}
           className="flex cursor-pointer items-start space-x-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-blue-300 hover:bg-blue-50"

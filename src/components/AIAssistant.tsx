@@ -3,11 +3,11 @@ import { MessageSquare, Send } from 'lucide-react';
 import type { Article } from '../types';
 
 interface AIAssistantProps {
-  article: Article;
-  onSuggestionApply: (suggestion: string) => void;
+  _article: Article;
+  _onSuggestionApply: (suggestion: string) => void;
 }
 
-export function AIAssistant({ article, onSuggestionApply }: AIAssistantProps) {
+export function AIAssistant({ _article, _onSuggestionApply }: AIAssistantProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
   const [chat, setChat] = useState<Array<{ role: 'user' | 'assistant'; content: string }>>([]);
