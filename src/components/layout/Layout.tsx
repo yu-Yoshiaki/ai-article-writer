@@ -31,37 +31,37 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="border-b bg-white shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex h-16 items-center justify-between">
             <div className="flex items-center space-x-8">
               <Link href="/" className="flex items-center space-x-2">
-                <PenTool className="h-8 w-8 text-blue-600" />
+                <PenTool className="size-8 text-blue-600" />
                 <span className="text-xl font-bold text-gray-900">PatchWrite</span>
               </Link>
 
-              <nav className="hidden md:flex space-x-6">
+              <nav className="hidden space-x-6 md:flex">
                 <Link
                   href="/"
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`flex items-center space-x-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                     isActive('/') 
                       ? 'bg-blue-100 text-blue-700' 
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                   }`}
                 >
-                  <Home className="h-4 w-4" />
+                  <Home className="size-4" />
                   <span>ホーム</span>
                 </Link>
 
                 <Link
                   href="/editor"
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`flex items-center space-x-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                     isActive('/editor') 
                       ? 'bg-blue-100 text-blue-700' 
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                   }`}
                 >
-                  <PenTool className="h-4 w-4" />
+                  <PenTool className="size-4" />
                   <span>エディター</span>
                 </Link>
               </nav>
@@ -72,20 +72,20 @@ export function Layout({ children }: LayoutProps) {
                 <div className="flex items-center space-x-3">
                   <Link
                     href="/profile"
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`flex items-center space-x-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                       isActive('/profile') 
                         ? 'bg-blue-100 text-blue-700' 
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                     }`}
                   >
                     {user.photoURL ? (
                       <img
                         src={user.photoURL}
                         alt={user.displayName || 'User'}
-                        className="w-6 h-6 rounded-full object-cover"
+                        className="size-6 rounded-full object-cover"
                       />
                     ) : (
-                      <User className="h-4 w-4" />
+                      <User className="size-4" />
                     )}
                     <span className="hidden md:inline">
                       {user.displayName || 'プロファイル'}
@@ -94,9 +94,9 @@ export function Layout({ children }: LayoutProps) {
 
                   <button
                     onClick={handleSignOut}
-                    className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+                    className="flex items-center space-x-1 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
                   >
-                    <LogOut className="h-4 w-4" />
+                    <LogOut className="size-4" />
                     <span className="hidden md:inline">ログアウト</span>
                   </button>
                 </div>
@@ -116,7 +116,7 @@ export function Layout({ children }: LayoutProps) {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t mt-auto">
+      <footer className="mt-auto border-t bg-white">
         <div className="container mx-auto px-4 py-6">
           <div className="text-center text-sm text-gray-600">
             <p>&copy; 2024 PatchWrite. All rights reserved.</p>

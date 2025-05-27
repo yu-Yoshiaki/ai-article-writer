@@ -19,21 +19,21 @@ export function SectionVariations({
           key={index}
           onClick={() => onSelectVariation(index)}
           className={`
-            relative p-4 rounded-lg border transition-all
+            relative rounded-lg border p-4 transition-all
             ${index === selectedVariation
               ? 'border-blue-400 bg-indigo-900 shadow-sm'
               : 'border-indigo-800 hover:border-indigo-700 hover:bg-indigo-900'
             }
-            cursor-pointer group
+            group cursor-pointer
           `}
         >
           <div className="flex items-start gap-3">
             <div className={`
-              flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full border border-current
-              ${index === selectedVariation ? 'text-blue-400 bg-indigo-800' : 'text-indigo-400 group-hover:text-indigo-300'}
+              flex size-6 shrink-0 items-center justify-center rounded-full border border-current
+              ${index === selectedVariation ? 'bg-indigo-800 text-blue-400' : 'text-indigo-400 group-hover:text-indigo-300'}
             `}>
               {index === selectedVariation ? (
-                <Check className="w-4 h-4" />
+                <Check className="size-4" />
               ) : (
                 <span className="text-sm">{index + 1}</span>
               )}

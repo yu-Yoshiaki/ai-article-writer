@@ -8,17 +8,17 @@ export function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="size-32 animate-spin rounded-full border-b-2 border-blue-600"></div>
       </div>
     );
   }
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center bg-gray-50">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="mb-4 text-2xl font-bold text-gray-900">
             ログインが必要です
           </h1>
           <p className="text-gray-600">
@@ -32,23 +32,23 @@ export function ProfilePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow-sm border">
-            <div className="p-6 border-b">
+        <div className="mx-auto max-w-4xl">
+          <div className="rounded-lg border bg-white shadow-sm">
+            <div className="border-b p-6">
               <h1 className="text-2xl font-bold text-gray-900">プロファイル</h1>
             </div>
 
             <div className="p-6">
-              <div className="flex items-center space-x-6 mb-8">
-                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+              <div className="mb-8 flex items-center space-x-6">
+                <div className="flex size-20 items-center justify-center rounded-full bg-blue-100">
                   {user.photoURL ? (
                     <img
                       src={user.photoURL}
                       alt={user.displayName || 'User'}
-                      className="w-20 h-20 rounded-full object-cover"
+                      className="size-20 rounded-full object-cover"
                     />
                   ) : (
-                    <User className="h-10 w-10 text-blue-600" />
+                    <User className="size-10 text-blue-600" />
                   )}
                 </div>
                 
@@ -57,7 +57,7 @@ export function ProfilePage() {
                     {user.displayName || 'ユーザー'}
                   </h2>
                   <p className="text-gray-600">{user.email}</p>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="mt-1 text-sm text-gray-500">
                     登録日: {user.metadata.creationTime ? 
                       new Date(user.metadata.creationTime).toLocaleDateString('ja-JP') : 
                       '不明'
@@ -66,10 +66,10 @@ export function ProfilePage() {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="flex items-center mb-4">
-                    <FileText className="h-6 w-6 text-blue-600 mr-3" />
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="rounded-lg bg-gray-50 p-6">
+                  <div className="mb-4 flex items-center">
+                    <FileText className="mr-3 size-6 text-blue-600" />
                     <h3 className="text-lg font-semibold">ドキュメント統計</h3>
                   </div>
                   <div className="space-y-2">
@@ -88,9 +88,9 @@ export function ProfilePage() {
                   </div>
                 </div>
 
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="flex items-center mb-4">
-                    <Settings className="h-6 w-6 text-gray-600 mr-3" />
+                <div className="rounded-lg bg-gray-50 p-6">
+                  <div className="mb-4 flex items-center">
+                    <Settings className="mr-3 size-6 text-gray-600" />
                     <h3 className="text-lg font-semibold">設定</h3>
                   </div>
                   <div className="space-y-3">

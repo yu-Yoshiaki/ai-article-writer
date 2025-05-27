@@ -53,15 +53,15 @@ export function HistoryPanel() {
       {mockHistory.map((item, index) => (
         <div
           key={item.id}
-          className="flex items-start space-x-3 p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 cursor-pointer transition-colors"
+          className="flex cursor-pointer items-start space-x-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-blue-300 hover:bg-blue-50"
         >
-          <div className="flex-shrink-0">
-            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-              <History className="h-4 w-4 text-blue-600" />
+          <div className="shrink-0">
+            <div className="flex size-8 items-center justify-center rounded-full bg-blue-100">
+              <History className="size-4 text-blue-600" />
             </div>
           </div>
           
-          <div className="flex-1 min-w-0">
+          <div className="min-w-0 flex-1">
             <div className="flex items-center justify-between">
               <div className="text-sm font-medium text-gray-900">
                 {getOperationLabel(item.operation)}
@@ -70,25 +70,25 @@ export function HistoryPanel() {
                 {formatTimestamp(item.timestamp)}
               </div>
             </div>
-            <div className="text-xs text-gray-600 mt-1 truncate">
+            <div className="mt-1 truncate text-xs text-gray-600">
               {item.content}
             </div>
           </div>
 
           <button
-            className="flex-shrink-0 p-1 text-gray-400 hover:text-blue-600 transition-colors"
+            className="shrink-0 p-1 text-gray-400 transition-colors hover:text-blue-600"
             title="この版に戻す"
           >
-            <RotateCcw className="h-4 w-4" />
+            <RotateCcw className="size-4" />
           </button>
         </div>
       ))}
 
       {mockHistory.length === 0 && (
-        <div className="text-center py-8 text-gray-500">
-          <History className="h-8 w-8 mx-auto mb-2 text-gray-300" />
+        <div className="py-8 text-center text-gray-500">
+          <History className="mx-auto mb-2 size-8 text-gray-300" />
           <p>履歴がありません</p>
-          <p className="text-sm mt-1">編集を開始すると履歴が表示されます</p>
+          <p className="mt-1 text-sm">編集を開始すると履歴が表示されます</p>
         </div>
       )}
     </div>

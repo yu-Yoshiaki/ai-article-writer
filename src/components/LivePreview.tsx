@@ -12,34 +12,34 @@ export function LivePreview({ article }: LivePreviewProps) {
   const markdown = generateMarkdown(article);
 
   return (
-    <div className="mystical-card h-full flex flex-col">
-      <div className="p-4 border-b border-slate-700/50 flex justify-between items-center">
+    <div className="mystical-card flex h-full flex-col">
+      <div className="flex items-center justify-between border-b border-slate-700/50 p-4">
         <h3 className="font-medium text-slate-200">Live Preview</h3>
         <div className="flex space-x-2">
           <button
             onClick={() => setView('desktop')}
-            className={`p-2 rounded-lg transition-colors ${
+            className={`rounded-lg p-2 transition-colors ${
               view === 'desktop'
-                ? 'text-purple-400 bg-purple-900/20'
+                ? 'bg-purple-900/20 text-purple-400'
                 : 'text-slate-400 hover:text-slate-300'
             }`}
           >
-            <Monitor className="w-5 h-5" />
+            <Monitor className="size-5" />
           </button>
           <button
             onClick={() => setView('mobile')}
-            className={`p-2 rounded-lg transition-colors ${
+            className={`rounded-lg p-2 transition-colors ${
               view === 'mobile'
-                ? 'text-purple-400 bg-purple-900/20'
+                ? 'bg-purple-900/20 text-purple-400'
                 : 'text-slate-400 hover:text-slate-300'
             }`}
           >
-            <Smartphone className="w-5 h-5" />
+            <Smartphone className="size-5" />
           </button>
         </div>
       </div>
 
-      <div className="flex-1 p-4 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto p-4">
         <div className={`mx-auto ${
           view === 'mobile' ? 'max-w-sm' : 'max-w-3xl'
         }`}>

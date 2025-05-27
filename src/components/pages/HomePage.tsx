@@ -6,26 +6,26 @@ export function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+        <div className="mb-16 text-center">
+          <h1 className="mb-6 text-5xl font-bold text-gray-900">
             PatchWrite
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-600">
             AI と協調しながら記事を部分的に生成・リライトできる Web ライティングツール
           </p>
           <Link 
             href="/editor"
-            className="inline-flex items-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
           >
-            <PenTool className="mr-2 h-5 w-5" />
+            <PenTool className="mr-2 size-5" />
             エディターを開く
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex items-center mb-4">
-              <Zap className="h-8 w-8 text-yellow-500 mr-3" />
+        <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-3">
+          <div className="rounded-lg bg-white p-6 shadow-md">
+            <div className="mb-4 flex items-center">
+              <Zap className="mr-3 size-8 text-yellow-500" />
               <h3 className="text-lg font-semibold">AI パッチ機能</h3>
             </div>
             <p className="text-gray-600">
@@ -33,9 +33,9 @@ export function HomePage() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex items-center mb-4">
-              <History className="h-8 w-8 text-green-500 mr-3" />
+          <div className="rounded-lg bg-white p-6 shadow-md">
+            <div className="mb-4 flex items-center">
+              <History className="mr-3 size-8 text-green-500" />
               <h3 className="text-lg font-semibold">履歴管理</h3>
             </div>
             <p className="text-gray-600">
@@ -43,9 +43,9 @@ export function HomePage() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex items-center mb-4">
-              <Users className="h-8 w-8 text-purple-500 mr-3" />
+          <div className="rounded-lg bg-white p-6 shadow-md">
+            <div className="mb-4 flex items-center">
+              <Users className="mr-3 size-8 text-purple-500" />
               <h3 className="text-lg font-semibold">差分可視化</h3>
             </div>
             <p className="text-gray-600">

@@ -13,9 +13,9 @@ export function ThemeCustomizer() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="mystical-card p-4 space-y-4">
+    <div className="mystical-card space-y-4 p-4">
       <div className="flex items-center space-x-2 text-purple-400">
-        <Palette className="w-5 h-5" />
+        <Palette className="size-5" />
         <h3 className="font-medium">Customize Theme</h3>
       </div>
 
@@ -24,7 +24,7 @@ export function ThemeCustomizer() {
           <button
             key={t.id}
             onClick={() => setTheme(t.id)}
-            className={`p-3 rounded-lg border transition-all ${
+            className={`rounded-lg border p-3 transition-all ${
               theme === t.id
                 ? 'border-purple-500 bg-purple-900/20'
                 : 'border-slate-700/50 hover:border-purple-500/30'
@@ -32,7 +32,7 @@ export function ThemeCustomizer() {
           >
             <div className="flex items-center space-x-2">
               <div
-                className="w-6 h-6 rounded-full"
+                className="size-6 rounded-full"
                 style={{
                   background: `linear-gradient(135deg, ${t.colors[0]} 0%, ${t.colors[1]} 100%)`
                 }}

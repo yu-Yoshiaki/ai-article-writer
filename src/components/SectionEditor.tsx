@@ -27,37 +27,37 @@ export function SectionEditor({
     <div className="mystical-section group">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <Sparkles className="w-5 h-5 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <Sparkles className="size-5 text-purple-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           <input
             type="text"
             value={section.title}
             onChange={(e) => onUpdateTitle(e.target.value)}
-            className="text-lg font-semibold bg-transparent border-b border-transparent 
-                     hover:border-purple-500/30 focus:border-purple-500 focus:outline-none
-                     text-slate-100 transition-all duration-300"
+            className="border-b border-transparent bg-transparent text-lg font-semibold 
+                     text-slate-100 transition-all duration-300
+                     hover:border-purple-500/30 focus:border-purple-500 focus:outline-none"
           />
         </div>
         <div className="flex items-center space-x-2">
           <button
             onClick={onMoveUp}
             disabled={isFirst}
-            className="p-2 hover:bg-slate-700/50 rounded-lg disabled:opacity-50 transition-colors"
+            className="rounded-lg p-2 transition-colors hover:bg-slate-700/50 disabled:opacity-50"
             title="Move section up"
           >
-            <ChevronUp className="w-5 h-5" />
+            <ChevronUp className="size-5" />
           </button>
           <button
             onClick={onMoveDown}
             disabled={isLast}
-            className="p-2 hover:bg-slate-700/50 rounded-lg disabled:opacity-50 transition-colors"
+            className="rounded-lg p-2 transition-colors hover:bg-slate-700/50 disabled:opacity-50"
             title="Move section down"
           >
-            <ChevronDown className="w-5 h-5" />
+            <ChevronDown className="size-5" />
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 mt-4">
+      <div className="mt-4 grid grid-cols-1 gap-4">
         {section.variations.map((variation, index) => (
           <div
             key={index}
@@ -68,15 +68,15 @@ export function SectionEditor({
           >
             <div className="flex items-start gap-3">
               <div className={`
-                flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full
-                border transition-colors duration-300
+                flex size-6 shrink-0 items-center justify-center rounded-full border
+                transition-colors duration-300
                 ${index === section.selectedVariation 
-                  ? 'text-purple-400 border-purple-400 bg-purple-900/30' 
-                  : 'text-slate-400 border-slate-600'
+                  ? 'border-purple-400 bg-purple-900/30 text-purple-400' 
+                  : 'border-slate-600 text-slate-400'
                 }
               `}>
                 {index === section.selectedVariation ? (
-                  <Check className="w-4 h-4" />
+                  <Check className="size-4" />
                 ) : (
                   <span className="text-sm">{index + 1}</span>
                 )}
@@ -92,10 +92,10 @@ export function SectionEditor({
       <div className="flex justify-end pt-4">
         <button
           onClick={onRegenerateVariations}
-          className="flex items-center gap-2 px-4 py-2 text-sm text-purple-400 
-                   hover:text-purple-300 hover:bg-purple-900/20 rounded-lg transition-all duration-300"
+          className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm 
+                   text-purple-400 transition-all duration-300 hover:bg-purple-900/20 hover:text-purple-300"
         >
-          <RefreshCw className="w-4 h-4" />
+          <RefreshCw className="size-4" />
           Generate More Variations
         </button>
       </div>

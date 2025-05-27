@@ -17,9 +17,9 @@ const tones: Array<{ value: ArticleTone; label: string; description: string }> =
 
 export function ToneSelector({ value, onChange }: ToneSelectorProps) {
   return (
-    <div className="mystical-card p-4 space-y-4">
+    <div className="mystical-card space-y-4 p-4">
       <div className="flex items-center space-x-2 text-purple-400">
-        <Wand2 className="w-5 h-5" />
+        <Wand2 className="size-5" />
         <h3 className="font-medium">Writing Tone</h3>
       </div>
       <div className="grid grid-cols-1 gap-2">
@@ -27,9 +27,9 @@ export function ToneSelector({ value, onChange }: ToneSelectorProps) {
           <button
             key={tone.value}
             onClick={() => onChange(tone.value)}
-            className={`p-3 rounded-lg text-left transition-all ${
+            className={`rounded-lg p-3 text-left transition-all ${
               value === tone.value
-                ? 'bg-purple-500/20 border border-purple-500/50'
+                ? 'border border-purple-500/50 bg-purple-500/20'
                 : 'hover:bg-slate-700/30'
             }`}
           >

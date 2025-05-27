@@ -37,9 +37,9 @@ const templates: Template[] = [
 
 export function TemplateSelector({ onSelect }: TemplateSelectorProps) {
   return (
-    <div className="mystical-card p-4 space-y-4">
+    <div className="mystical-card space-y-4 p-4">
       <div className="flex items-center space-x-2 text-purple-400">
-        <Layout className="w-5 h-5" />
+        <Layout className="size-5" />
         <h3 className="font-medium">Article Templates</h3>
       </div>
       <div className="grid grid-cols-1 gap-3">
@@ -47,17 +47,17 @@ export function TemplateSelector({ onSelect }: TemplateSelectorProps) {
           <button
             key={template.id}
             onClick={() => onSelect(template)}
-            className="group p-4 rounded-lg bg-slate-800/30 hover:bg-slate-800/50 
-                     border border-slate-700/50 hover:border-purple-500/30 
-                     transition-all text-left"
+            className="group rounded-lg border border-slate-700/50 bg-slate-800/30 
+                     p-4 text-left transition-all 
+                     hover:border-purple-500/30 hover:bg-slate-800/50"
           >
             <div className="flex items-center justify-between">
               <div>
                 <div className="font-medium text-slate-200">{template.name}</div>
                 <div className="text-sm text-slate-400">{template.description}</div>
               </div>
-              <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-purple-400 
-                                    transform group-hover:translate-x-1 transition-all" />
+              <ChevronRight className="size-5 text-slate-400 transition-all group-hover:translate-x-1 
+                                    group-hover:text-purple-400" />
             </div>
           </button>
         ))}

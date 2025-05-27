@@ -10,7 +10,7 @@ export function LoginButton() {
       onClick={signInWithGoogle}
       className="mystical-button flex items-center space-x-2"
     >
-      <LogIn className="w-5 h-5" />
+      <LogIn className="size-5" />
       <span>Sign in with Google</span>
     </button>
   );
