@@ -52,7 +52,7 @@ export function KeywordAnalyzer({ article }: KeywordAnalyzerProps) {
   );
 }
 
-function analyzeKeywords(article: Article) {
+function analyzeKeywords(_article: Article) {
   // Simulate keyword analysis
   return [
     { word: 'technology', count: 5, trend: 1, relevance: 95 },

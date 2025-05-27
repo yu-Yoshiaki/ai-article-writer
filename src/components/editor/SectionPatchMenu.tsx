@@ -11,11 +11,11 @@ interface SectionPatchMenuProps {
 }
 
 export function SectionPatchMenu({ 
-  sectionId, 
+  sectionId: _sectionId, 
   content, 
   onClose, 
   onPreview, 
-  onApply 
+  onApply: _onApply 
 }: SectionPatchMenuProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedOperation, setSelectedOperation] = useState<PatchRequest['operation'] | null>(null);

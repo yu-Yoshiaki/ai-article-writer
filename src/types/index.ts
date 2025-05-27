@@ -11,6 +11,7 @@ export interface Section {
 }
 
 export interface Article {
+  id?: string;
   theme: string;
   sections: Section[];
   tone?: ArticleTone;
@@ -47,7 +48,7 @@ export interface SeoScore {
 
 export interface EditorHistory {
   past: Article[];
-  present: Article;
+  present: Article | null;
   future: Article[];
 }
 

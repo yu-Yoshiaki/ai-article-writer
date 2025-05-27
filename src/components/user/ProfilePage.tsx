@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../config/firebase';
 import { User, Settings, FileText } from 'lucide-react';
+import Image from 'next/image';
 
 export function ProfilePage() {
   const [user, loading] = useAuthState(auth);
@@ -42,7 +43,7 @@ export function ProfilePage() {
               <div className="mb-8 flex items-center space-x-6">
                 <div className="flex size-20 items-center justify-center rounded-full bg-blue-100">
                   {user.photoURL ? (
-                    <img
+                    <Image
                       src={user.photoURL}
                       alt={user.displayName || 'User'}
                       className="size-20 rounded-full object-cover"

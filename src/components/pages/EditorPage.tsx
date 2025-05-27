@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { MarkdownEditor } from '../editor/MarkdownEditor';
 import { SectionList } from '../editor/SectionList';
@@ -54,7 +56,7 @@ export function EditorPage() {
                   sections={sections}
                   onSectionClick={(sectionId) => {
                     // セクションにスクロール
-                    const element = document.getElementById(`section-${sectionId}`);
+                    const element = window.document.getElementById(`section-${sectionId}`);
                     element?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 />

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Smartphone, Monitor } from 'lucide-react';
 import type { Article } from '../types';
-import { generateMarkdown } from '../utils/markdown';
 
 interface LivePreviewProps {
   article: Article;
@@ -9,7 +8,7 @@ interface LivePreviewProps {
 
 export function LivePreview({ article }: LivePreviewProps) {
   const [view, setView] = useState<'desktop' | 'mobile'>('desktop');
-  const markdown = generateMarkdown(article);
+  // const markdown = generateMarkdown(article);
 
   return (
     <div className="mystical-card flex h-full flex-col">

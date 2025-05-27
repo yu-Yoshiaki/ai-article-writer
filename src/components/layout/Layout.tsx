@@ -7,6 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../config/firebase';
 import { signOut } from 'firebase/auth';
 import { PenTool, User, LogOut, Home } from 'lucide-react';
+import Image from 'next/image';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -79,7 +80,7 @@ export function Layout({ children }: LayoutProps) {
                     }`}
                   >
                     {user.photoURL ? (
-                      <img
+                      <Image
                         src={user.photoURL}
                         alt={user.displayName || 'User'}
                         className="size-6 rounded-full object-cover"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FileText } from 'lucide-react';
-import type { Article } from '../types';
+import type { Article, ArticleTone } from '../types';
 import { SectionList } from './sections/SectionList';
 import { ToneSelector } from './ToneSelector';
 import { SeoAnalyzer } from './SeoAnalyzer';

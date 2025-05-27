@@ -15,9 +15,9 @@ export const userService = {
     const userRef = doc(db, "users", uid);
     const defaultProfile: UserProfile = {
       uid,
-      displayName: auth.currentUser?.displayName,
-      email: auth.currentUser?.email,
-      photoURL: auth.currentUser?.photoURL,
+      displayName: auth.currentUser?.displayName || null,
+      email: auth.currentUser?.email || null,
+      photoURL: auth.currentUser?.photoURL || null,
       createdAt: new Date().toISOString(),
       lastLoginAt: new Date().toISOString(),
       preferences: {
