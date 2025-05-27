@@ -1,146 +1,117 @@
-import React, { useEffect, useState } from 'react';
-import { useAuth } from '../auth/AuthProvider';
-import { userService } from '../../services/userService';
-import type { UserProfile } from '../../types/user';
-import { Settings, User, Mail, Globe, Bell } from 'lucide-react';
+import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../config/firebase';
+import { User, Settings, FileText } from 'lucide-react';
 
 export function ProfilePage() {
-  const { user } = useAuth();
-  const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isSaving, setIsSaving] = useState(false);
+  const [user, loading] = useAuthState(auth);
 
-  useEffect(() => {
-    if (user) {
-      loadProfile();
-    }
-  }, [user]);
-
-  const loadProfile = async () => {
-    if (!user) return;
-    
-    try {
-      let userProfile = await userService.getProfile(user.uid);
-      if (!userProfile) {
-        userProfile = await userService.createProfile(user.uid);
-      }
-      setProfile(userProfile);
-    } catch (error) {
-      console.error('Error loading profile:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handlePreferenceChange = async (key: keyof UserProfile['preferences'], value: any) => {
-    if (!user || !profile) return;
-    
-    setIsSaving(true);
-    try {
-      await userService.updatePreferences(user.uid, {
-        ...profile.preferences,
-        [key]: value
-      });
-      setProfile(prev => prev ? {
-        ...prev,
-        preferences: {
-          ...prev.preferences,
-          [key]: value
-        }
-      } : null);
-    } catch (error) {
-      console.error('Error updating preferences:', error);
-    } finally {
-      setIsSaving(false);
-    }
-  };
-
-  if (isLoading) {
+  if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-purple-400 border-t-transparent rounded-full animate-spin" />
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            ログインが必要です
+          </h1>
+          <p className="text-gray-600">
+            プロファイルページにアクセスするにはログインしてください。
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4">
-      <div className="mystical-card p-8">
-        <div className="flex items-center space-x-4 mb-8">
-          <div className="relative">
-            <img
-              src={profile?.photoURL || 'https://via.placeholder.com/100'}
-              alt={profile?.displayName || 'User'}
-              className="w-24 h-24 rounded-full object-cover"
-            />
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold text-slate-100">{profile?.displayName}</h1>
-            <p className="text-slate-400">{profile?.email}</p>
-          </div>
-        </div>
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-lg shadow-sm border">
+            <div className="p-6 border-b">
+              <h1 className="text-2xl font-bold text-gray-900">プロファイル</h1>
+            </div>
 
-        <div className="space-y-6">
-          <div className="border-b border-slate-700/50 pb-6">
-            <h2 className="text-xl font-semibold text-slate-100 mb-4 flex items-center">
-              <Settings className="w-5 h-5 mr-2" />
-              設定
-            </h2>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <Bell className="w-5 h-5 text-slate-400" />
-                  <span className="text-slate-300">メール通知</span>
+            <div className="p-6">
+              <div className="flex items-center space-x-6 mb-8">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                  {user.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      alt={user.displayName || 'User'}
+                      className="w-20 h-20 rounded-full object-cover"
+                    />
+                  ) : (
+                    <User className="h-10 w-10 text-blue-600" />
+                  )}
                 </div>
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="sr-only peer"
-                    checked={profile?.preferences.emailNotifications}
-                    onChange={(e) => handlePreferenceChange('emailNotifications', e.target.checked)}
-                  />
-                  <div className="w-11 h-6 bg-slate-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
-                </label>
+                
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    {user.displayName || 'ユーザー'}
+                  </h2>
+                  <p className="text-gray-600">{user.email}</p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    登録日: {user.metadata.creationTime ? 
+                      new Date(user.metadata.creationTime).toLocaleDateString('ja-JP') : 
+                      '不明'
+                    }
+                  </p>
+                </div>
               </div>
 
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <Globe className="w-5 h-5 text-slate-400" />
-                  <span className="text-slate-300">言語</span>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="flex items-center mb-4">
+                    <FileText className="h-6 w-6 text-blue-600 mr-3" />
+                    <h3 className="text-lg font-semibold">ドキュメント統計</h3>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">作成したドキュメント:</span>
+                      <span className="font-medium">3</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">総文字数:</span>
+                      <span className="font-medium">1,250</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">AIパッチ使用回数:</span>
+                      <span className="font-medium">15</span>
+                    </div>
+                  </div>
                 </div>
-                <select
-                  value={profile?.preferences.language}
-                  onChange={(e) => handlePreferenceChange('language', e.target.value)}
-                  className="mystical-input bg-slate-800 text-slate-300 py-2 px-3 rounded-lg"
-                >
-                  <option value="ja">日本語</option>
-                  <option value="en">English</option>
-                </select>
-              </div>
 
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <User className="w-5 h-5 text-slate-400" />
-                  <span className="text-slate-300">テーマ</span>
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="flex items-center mb-4">
+                    <Settings className="h-6 w-6 text-gray-600 mr-3" />
+                    <h3 className="text-lg font-semibold">設定</h3>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600">自動保存:</span>
+                      <input type="checkbox" defaultChecked className="rounded" />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600">ダークモード:</span>
+                      <input type="checkbox" className="rounded" />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-600">通知:</span>
+                      <input type="checkbox" defaultChecked className="rounded" />
+                    </div>
+                  </div>
                 </div>
-                <select
-                  value={profile?.preferences.theme}
-                  onChange={(e) => handlePreferenceChange('theme', e.target.value as 'light' | 'dark')}
-                  className="mystical-input bg-slate-800 text-slate-300 py-2 px-3 rounded-lg"
-                >
-                  <option value="light">ライト</option>
-                  <option value="dark">ダーク</option>
-                </select>
               </div>
             </div>
           </div>
         </div>
-
-        {isSaving && (
-          <div className="mt-4 text-sm text-purple-400">
-            設定を保存中...
-          </div>
-        )}
       </div>
     </div>
   );

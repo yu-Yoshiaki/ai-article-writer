@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useAuth } from '../auth/AuthProvider';
 import {
   Home,
@@ -12,7 +13,7 @@ import {
 
 export function Sidebar() {
   const { user, signOut } = useAuth();
-  const location = useLocation();
+  const pathname = usePathname();
 
   const menuItems = [
     { path: '/', icon: Home, label: 'ホーム' },
@@ -23,7 +24,7 @@ export function Sidebar() {
   ];
 
   const isActive = (path: string) => {
-    return location.pathname === path;
+    return pathname === path;
   };
 
   return (
@@ -59,7 +60,7 @@ export function Sidebar() {
             {menuItems.map((item) => (
               <li key={item.path}>
                 <Link
-                  to={item.path}
+                  href={item.path}
                   className={`flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
                     isActive(item.path)
                       ? 'bg-purple-500/20 text-purple-400'
