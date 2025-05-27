@@ -1,0 +1,21 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# パッケージ管理ルール
+
+本プロジェクトでは[package.json](mdc:package.json)で依存パッケージを管理し、 [package-lock.json](mdc:package-lock.json) が存在するため、パッケージマネージャーはnpmを推奨します。
+
+## 主要コマンド
+- 依存インストール: `npm install`
+- パッケージ追加: `npm install <package名>`
+- パッケージ削除: `npm uninstall <package名>`
+- スクリプト実行: `npm run <script名>`
+
+## npx等の利用について
+- npx等のコマンドを利用する
+
+## 参考
+- [package.json](mdc:package.json)
+- [package-lock.json](mdc:package-lock.json)

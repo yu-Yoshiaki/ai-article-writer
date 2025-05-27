@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Next.js利用ルール
+
+本プロジェクトはNext.jsをフレームワークとして採用しています。
+
+## 主要ディレクトリ
+- [app/](mdc:app) : ルートアプリケーションディレクトリ。ページやレイアウトを配置。
+- [components/](mdc:components) : UIコンポーネント群。
+- [public/](mdc:public) : 静的ファイル（画像・フォント等）。
+
+## 主要設定ファイル
+- [next.config.mjs](mdc:next.config.mjs) : Next.jsのカスタム設定。
+- [tsconfig.json](mdc:tsconfig.json) : TypeScript設定。
+- [tailwind.config.ts](mdc:tailwind.config.ts) : Tailwind CSS設定。
+
+## スクリプト
+- 開発サーバー起動: `npm run dev`
+- 本番ビルド: `npm run build`
+- 本番起動: `npm run start`
+- Lint: `npm run lint`
+
+## 参考
+- [package.json](mdc:package.json)

@@ -1,0 +1,28 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 依存パッケージ一覧
+
+本プロジェクトで利用している主な依存パッケージ・開発用パッケージの概要です。
+
+## dependencies
+- next, react, react-dom : Next.js/React本体
+- @radix-ui/* : UIコンポーネント
+- @monaco-editor/react, monaco-editor : エディタUI
+- js-yaml : YAMLパース
+- tailwindcss, tailwindcss-animate, tailwind-merge, autoprefixer : Tailwind CSS関連
+- zod : バリデーション
+- react-hook-form, @hookform/resolvers : フォーム管理
+- date-fns : 日付操作
+- lucide-react : アイコン
+- その他: UI補助・ユーティリティ等
+
+## devDependencies
+- typescript, @types/* : TypeScript型定義
+- postcss : CSSビルド
+- @types/node, @types/react, @types/react-dom : 型定義
+- tailwindcss : CSSフレームワーク
+
+詳細は[package.json](mdc:package.json)を参照。

@@ -1,0 +1,20 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# TypeScript利用ルール
+
+本プロジェクトはTypeScriptを利用しています。
+
+## 設定ファイル
+- [tsconfig.json](mdc:tsconfig.json) : TypeScriptのコンパイラ設定
+- [next-env.d.ts](mdc:next-env.d.ts) : Next.js用型定義
+
+## 型定義
+- 型定義ファイルは`@types/`パッケージや、`*.d.ts`ファイルで管理
+- 型安全を重視し、anyの利用は最小限に
+
+## 参考
+- [package.json](mdc:package.json)
+- [tsconfig.json](mdc:tsconfig.json)

@@ -1,0 +1,21 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Tailwind CSS利用ルール
+
+本プロジェクトはTailwind CSSを利用しています。
+
+## 設定ファイル
+- [tailwind.config.ts](mdc:tailwind.config.ts) : Tailwind CSSのカスタム設定
+- [postcss.config.mjs](mdc:postcss.config.mjs) : PostCSS設定
+
+## 関連パッケージ
+- tailwindcss
+- tailwindcss-animate
+- autoprefixer
+- tailwind-merge
+
+## 参考
+- [package.json](mdc:package.json)
