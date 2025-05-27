@@ -82,6 +82,9 @@ AI Article Writer is a Next.js application for creating and managing articles wi
 - Always check `/tasks/` directory before starting any implementation
 - Follow the task template structure (概要、対象ファイル、ゴール)
 - Create a new task file if one doesn't exist for the requested feature
+- **MUST create a new feature branch for each task** (e.g., `feature/01-tailwind-configuration-fix`)
+- Branch name should match the task file name
+- Never work directly on `dev` or `main` branches
 
 ## Common Tasks
 - See `/tasks/` directory for task templates
