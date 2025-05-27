@@ -28,18 +28,18 @@ export function ArticleEditor({
   onToneChange
 }: ArticleEditorProps) {
   return (
-    <div className="flex gap-6 max-w-7xl mx-auto py-8 px-4">
+    <div className="mx-auto flex max-w-7xl gap-6 px-4 py-8">
       {/* Main Content */}
       <div className="flex-1 space-y-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <h1 className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-2xl font-bold text-transparent">
             {article.theme}
           </h1>
           <button
             onClick={onShowPreview}
             className="mystical-button"
           >
-            <FileText className="w-5 h-5 mr-2" />
+            <FileText className="mr-2 size-5" />
             Preview Article
           </button>
         </div>

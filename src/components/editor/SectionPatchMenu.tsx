@@ -46,15 +46,15 @@ export function SectionPatchMenu({
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
-        <div className="flex items-center justify-between mb-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="mx-4 w-full max-w-md rounded-lg bg-white p-6">
+        <div className="mb-4 flex items-center justify-between">
           <h3 className="text-lg font-semibold">AI パッチ機能</h3>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600"
           >
-            <X className="h-5 w-5" />
+            <X className="size-5" />
           </button>
         </div>
 
@@ -63,36 +63,36 @@ export function SectionPatchMenu({
           <button
             onClick={() => handlePatch('summarize')}
             disabled={isLoading}
-            className="w-full flex items-center p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors disabled:opacity-50"
+            className="flex w-full items-center rounded-lg border border-gray-200 p-4 transition-colors hover:border-blue-300 hover:bg-blue-50 disabled:opacity-50"
           >
-            <Zap className="h-5 w-5 text-yellow-500 mr-3" />
+            <Zap className="mr-3 size-5 text-yellow-500" />
             <div className="text-left">
               <div className="font-medium">要約</div>
               <div className="text-sm text-gray-600">内容を簡潔にまとめます</div>
             </div>
             {isLoading && selectedOperation === 'summarize' && (
-              <div className="ml-auto animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+              <div className="ml-auto size-4 animate-spin rounded-full border-b-2 border-blue-600"></div>
             )}
           </button>
 
           {/* Expand */}
-          <div className="border border-gray-200 rounded-lg p-4">
-            <div className="flex items-center mb-3">
-              <Expand className="h-5 w-5 text-green-500 mr-3" />
+          <div className="rounded-lg border border-gray-200 p-4">
+            <div className="mb-3 flex items-center">
+              <Expand className="mr-3 size-5 text-green-500" />
               <div>
                 <div className="font-medium">拡張</div>
                 <div className="text-sm text-gray-600">内容を詳しく展開します</div>
               </div>
             </div>
             <div className="mb-3">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="mb-1 block text-sm font-medium text-gray-700">
                 追加文字数
               </label>
               <input
                 type="number"
                 value={extraWords}
                 onChange={(e) => setExtraWords(Number(e.target.value))}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 min="10"
                 max="500"
               />
@@ -100,23 +100,23 @@ export function SectionPatchMenu({
             <button
               onClick={() => handlePatch('expand')}
               disabled={isLoading}
-              className="w-full px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors disabled:opacity-50"
+              className="w-full rounded-md bg-green-600 px-4 py-2 text-white transition-colors hover:bg-green-700 disabled:opacity-50"
             >
               {isLoading && selectedOperation === 'expand' ? '処理中...' : '拡張実行'}
             </button>
           </div>
 
           {/* Change Tone */}
-          <div className="border border-gray-200 rounded-lg p-4">
-            <div className="flex items-center mb-3">
-              <Palette className="h-5 w-5 text-purple-500 mr-3" />
+          <div className="rounded-lg border border-gray-200 p-4">
+            <div className="mb-3 flex items-center">
+              <Palette className="mr-3 size-5 text-purple-500" />
               <div>
                 <div className="font-medium">トーン変更</div>
                 <div className="text-sm text-gray-600">文体やスタイルを変更します</div>
               </div>
             </div>
             <div className="mb-3">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="mb-1 block text-sm font-medium text-gray-700">
                 希望するスタイル
               </label>
               <input
@@ -124,13 +124,13 @@ export function SectionPatchMenu({
                 value={style}
                 onChange={(e) => setStyle(e.target.value)}
                 placeholder="例: フォーマル、カジュアル、技術的"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <button
               onClick={() => handlePatch('changeTone')}
               disabled={isLoading || !style.trim()}
-              className="w-full px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors disabled:opacity-50"
+              className="w-full rounded-md bg-purple-600 px-4 py-2 text-white transition-colors hover:bg-purple-700 disabled:opacity-50"
             >
               {isLoading && selectedOperation === 'changeTone' ? '処理中...' : 'トーン変更実行'}
             </button>

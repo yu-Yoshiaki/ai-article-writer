@@ -28,28 +28,28 @@ export function ExportOptions({ article }: ExportOptionsProps) {
   };
 
   return (
-    <div className="mystical-card p-4 space-y-4">
+    <div className="mystical-card space-y-4 p-4">
       <div className="flex items-center space-x-2 text-purple-400">
-        <FileText className="w-5 h-5" />
+        <FileText className="size-5" />
         <h3 className="font-medium">Export Options</h3>
       </div>
       
       <div className="grid grid-cols-2 gap-3">
         <button
           onClick={handleCopyMarkdown}
-          className="flex items-center justify-center space-x-2 p-3 rounded-lg
-                   bg-slate-700/30 hover:bg-slate-700/50 transition-colors"
+          className="flex items-center justify-center space-x-2 rounded-lg bg-slate-700/30
+                   p-3 transition-colors hover:bg-slate-700/50"
         >
-          <Copy className="w-4 h-4" />
+          <Copy className="size-4" />
           <span>Copy Markdown</span>
         </button>
         
         <button
           onClick={handleDownloadMarkdown}
-          className="flex items-center justify-center space-x-2 p-3 rounded-lg
-                   bg-slate-700/30 hover:bg-slate-700/50 transition-colors"
+          className="flex items-center justify-center space-x-2 rounded-lg bg-slate-700/30
+                   p-3 transition-colors hover:bg-slate-700/50"
         >
-          <FileDown className="w-4 h-4" />
+          <FileDown className="size-4" />
           <span>Download .md</span>
         </button>
       </div>

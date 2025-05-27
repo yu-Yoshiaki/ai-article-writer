@@ -13,19 +13,19 @@ export function SectionList({ sections, onSectionClick }: SectionListProps) {
         <div
           key={section.id}
           onClick={() => onSectionClick(section.id)}
-          className="p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 cursor-pointer transition-colors"
+          className="cursor-pointer rounded-lg border border-gray-200 p-3 transition-colors hover:border-blue-300 hover:bg-blue-50"
         >
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <div className="font-medium text-sm text-gray-900">
+              <div className="text-sm font-medium text-gray-900">
                 セクション {index + 1}
               </div>
-              <div className="text-xs text-gray-600 mt-1 line-clamp-2">
+              <div className="mt-1 line-clamp-2 text-xs text-gray-600">
                 {section.content.substring(0, 100)}
                 {section.content.length > 100 && '...'}
               </div>
             </div>
-            <div className="text-xs text-gray-400 ml-2">
+            <div className="ml-2 text-xs text-gray-400">
               {section.content.length} 文字
             </div>
           </div>
@@ -33,9 +33,9 @@ export function SectionList({ sections, onSectionClick }: SectionListProps) {
       ))}
       
       {sections.length === 0 && (
-        <div className="text-center py-8 text-gray-500">
+        <div className="py-8 text-center text-gray-500">
           <p>セクションがありません</p>
-          <p className="text-sm mt-1">Markdownテキストを入力してセクションを作成してください</p>
+          <p className="mt-1 text-sm">Markdownテキストを入力してセクションを作成してください</p>
         </div>
       )}
     </div>

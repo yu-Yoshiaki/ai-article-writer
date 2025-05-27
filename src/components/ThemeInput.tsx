@@ -27,16 +27,16 @@ export function ThemeInput({ onSubmit, isLoading }: ThemeInputProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
-      <div className="w-full max-w-2xl mystical-card p-8 floating-effect">
+    <div className="flex min-h-screen items-center justify-center p-6">
+      <div className="mystical-card floating-effect w-full max-w-2xl p-8">
         <div className="space-y-8">
-          <div className="text-center space-y-4">
+          <div className="space-y-4 text-center">
             <div className="flex items-center justify-center space-x-3">
-              <Sparkles className="w-8 h-8 text-purple-400" />
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              <Sparkles className="size-8 text-purple-400" />
+              <h1 className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-3xl font-bold text-transparent">
                 AI Article Enchanter
               </h1>
-              <Sparkles className="w-8 h-8 text-purple-400" />
+              <Sparkles className="size-8 text-purple-400" />
             </div>
             <p className="text-slate-300">
               Transform your ideas into enchanting articles with the power of AI
@@ -61,16 +61,16 @@ export function ThemeInput({ onSubmit, isLoading }: ThemeInputProps) {
             <Button
               type="submit"
               disabled={isLoading || !!error || !theme.trim()}
-              className="w-full mystical-button"
+              className="mystical-button w-full"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center space-x-2">
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="size-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                   <span>Channeling Magic...</span>
                 </div>
               ) : (
                 <div className="flex items-center justify-center space-x-2">
-                  <PenLine className="w-5 h-5" />
+                  <PenLine className="size-5" />
                   <span>Generate Article</span>
                 </div>
               )}

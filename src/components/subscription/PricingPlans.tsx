@@ -38,9 +38,9 @@ export function PricingPlans() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-12 px-4">
-      <div className="text-center space-y-4 mb-12">
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+    <div className="mx-auto max-w-4xl px-4 py-12">
+      <div className="mb-12 space-y-4 text-center">
+        <h2 className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-3xl font-bold text-transparent">
           Choose Your Plan
         </h2>
         <p className="text-slate-300">
@@ -48,15 +48,15 @@ export function PricingPlans() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid gap-8 md:grid-cols-2">
         {plans.map((plan) => (
           <div
             key={plan.id}
-            className="mystical-card p-6 space-y-6 relative overflow-hidden"
+            className="mystical-card relative space-y-6 overflow-hidden p-6"
           >
             {plan.id === 'pro' && (
-              <div className="absolute top-4 right-4">
-                <Sparkles className="w-6 h-6 text-purple-400" />
+              <div className="absolute right-4 top-4">
+                <Sparkles className="size-6 text-purple-400" />
               </div>
             )}
 
@@ -71,7 +71,7 @@ export function PricingPlans() {
             <ul className="space-y-3">
               {plan.features.map((feature, index) => (
                 <li key={index} className="flex items-center space-x-3">
-                  <Check className="w-5 h-5 text-green-400" />
+                  <Check className="size-5 text-green-400" />
                   <span className="text-slate-300">{feature}</span>
                 </li>
               ))}
@@ -80,7 +80,7 @@ export function PricingPlans() {
             <button
               onClick={() => handleSubscribe(plan.id)}
               disabled={!user || currentPlan === plan.id}
-              className={`w-full mystical-button ${
+              className={`mystical-button w-full ${
                 currentPlan === plan.id
                   ? 'bg-green-600 hover:bg-green-700'
                   : ''

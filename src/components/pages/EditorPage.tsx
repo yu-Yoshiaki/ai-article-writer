@@ -10,8 +10,8 @@ export function EditorPage() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="size-32 animate-spin rounded-full border-b-2 border-blue-600"></div>
       </div>
     );
   }
@@ -22,12 +22,12 @@ export function EditorPage() {
         <div className="flex gap-8">
           {/* Main Editor */}
           <div className="flex-1">
-            <div className="bg-white rounded-lg shadow-sm border">
-              <div className="p-6 border-b">
+            <div className="rounded-lg border bg-white shadow-sm">
+              <div className="border-b p-6">
                 <h1 className="text-2xl font-bold text-gray-900">
                   {document?.title || '新しいドキュメント'}
                 </h1>
-                <p className="text-gray-600 mt-2">
+                <p className="mt-2 text-gray-600">
                   段落をクリックして AI パッチ機能を使用できます
                 </p>
               </div>
@@ -46,8 +46,8 @@ export function EditorPage() {
           <div className="w-80">
             <div className="space-y-6">
               {/* Section List */}
-              <div className="bg-white rounded-lg shadow-sm border">
-                <div className="p-4 border-b">
+              <div className="rounded-lg border bg-white shadow-sm">
+                <div className="border-b p-4">
                   <h3 className="font-semibold text-gray-900">セクション一覧</h3>
                 </div>
                 <SectionList 
@@ -62,8 +62,8 @@ export function EditorPage() {
 
               {/* History Panel */}
               {showHistory && (
-                <div className="bg-white rounded-lg shadow-sm border">
-                  <div className="p-4 border-b flex items-center justify-between">
+                <div className="rounded-lg border bg-white shadow-sm">
+                  <div className="flex items-center justify-between border-b p-4">
                     <h3 className="font-semibold text-gray-900">履歴</h3>
                     <button
                       onClick={() => setShowHistory(false)}
@@ -79,7 +79,7 @@ export function EditorPage() {
               {!showHistory && (
                 <button
                   onClick={() => setShowHistory(true)}
-                  className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="w-full rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
                 >
                   履歴を表示
                 </button>

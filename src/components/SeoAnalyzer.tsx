@@ -8,10 +8,10 @@ interface SeoAnalyzerProps {
 
 export function SeoAnalyzer({ score }: SeoAnalyzerProps) {
   return (
-    <div className="mystical-card p-4 space-y-4">
+    <div className="mystical-card space-y-4 p-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2 text-purple-400">
-          <TrendingUp className="w-5 h-5" />
+          <TrendingUp className="size-5" />
           <h3 className="font-medium">SEO Analysis</h3>
         </div>
         <div className="flex items-center space-x-2">
@@ -30,8 +30,8 @@ export function SeoAnalyzer({ score }: SeoAnalyzerProps) {
             {score.keywords.map((keyword, index) => (
               <div
                 key={index}
-                className="px-2 py-1 rounded-full text-sm bg-slate-700/50 
-                         border border-slate-600/50 text-slate-300"
+                className="rounded-full border border-slate-600/50 bg-slate-700/50 px-2 
+                         py-1 text-sm text-slate-300"
               >
                 {keyword.word}
                 <span className="ml-1 text-slate-400">
@@ -51,7 +51,7 @@ export function SeoAnalyzer({ score }: SeoAnalyzerProps) {
                   key={index}
                   className="flex items-start space-x-2 text-sm text-slate-300"
                 >
-                  <AlertCircle className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="mt-0.5 size-4 shrink-0 text-yellow-400" />
                   <span>{suggestion}</span>
                 </div>
               ))}

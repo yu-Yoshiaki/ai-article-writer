@@ -10,9 +10,9 @@ export function KeywordAnalyzer({ article }: KeywordAnalyzerProps) {
   const keywords = analyzeKeywords(article);
 
   return (
-    <div className="mystical-card p-4 space-y-4">
+    <div className="mystical-card space-y-4 p-4">
       <div className="flex items-center space-x-2 text-purple-400">
-        <Hash className="w-5 h-5" />
+        <Hash className="size-5" />
         <h3 className="font-medium">Keyword Analysis</h3>
       </div>
 
@@ -21,12 +21,12 @@ export function KeywordAnalyzer({ article }: KeywordAnalyzerProps) {
           {keywords.map((keyword, index) => (
             <div
               key={index}
-              className="p-3 rounded-lg bg-slate-800/30 border border-slate-700/50"
+              className="rounded-lg border border-slate-700/50 bg-slate-800/30 p-3"
             >
               <div className="flex items-center justify-between">
                 <span className="text-slate-300">{keyword.word}</span>
                 <div className="flex items-center space-x-1">
-                  <TrendingUp className={`w-4 h-4 ${
+                  <TrendingUp className={`size-4 ${
                     keyword.trend > 0 ? 'text-green-400' : 'text-red-400'
                   }`} />
                   <span className="text-sm text-slate-400">{keyword.count}x</span>
@@ -39,9 +39,9 @@ export function KeywordAnalyzer({ article }: KeywordAnalyzerProps) {
           ))}
         </div>
 
-        <div className="p-3 rounded-lg bg-purple-900/20 border border-purple-500/30">
-          <h4 className="font-medium text-purple-300 mb-2">Suggestions</h4>
-          <ul className="text-sm text-slate-300 space-y-1">
+        <div className="rounded-lg border border-purple-500/30 bg-purple-900/20 p-3">
+          <h4 className="mb-2 font-medium text-purple-300">Suggestions</h4>
+          <ul className="space-y-1 text-sm text-slate-300">
             <li>• Consider adding more industry-specific terms</li>
             <li>• Increase usage of your primary keyword</li>
             <li>• Add more long-tail keyword variations</li>

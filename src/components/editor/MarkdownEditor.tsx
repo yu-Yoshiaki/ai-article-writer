@@ -48,7 +48,7 @@ export function MarkdownEditor({ sections, onUpdateSection, onCreateRevision }: 
         >
           <div className="prose max-w-none">
             <div
-              className="min-h-[100px] p-4 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors cursor-pointer"
+              className="min-h-[100px] cursor-pointer rounded-lg border border-gray-200 p-4 transition-colors hover:border-gray-300"
               onClick={() => handleSectionClick(section.id)}
             >
               {section.content.split('\n\n').map((paragraph, index) => (
@@ -61,13 +61,13 @@ export function MarkdownEditor({ sections, onUpdateSection, onCreateRevision }: 
 
           {/* Magic Button */}
           <button
-            className="magic-button absolute top-2 right-2 p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all"
+            className="magic-button absolute right-2 top-2 rounded-full bg-blue-600 p-2 text-white transition-all hover:bg-blue-700"
             onClick={(e) => {
               e.stopPropagation();
               handleSectionClick(section.id);
             }}
           >
-            <Wand2 className="h-4 w-4" />
+            <Wand2 className="size-4" />
           </button>
         </div>
       ))}

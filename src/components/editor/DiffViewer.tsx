@@ -14,9 +14,9 @@ export function DiffViewer({ original, patched, operation, onApply, onReject }: 
   const { diffChunks } = useDiff(original, patched);
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-[80vh] overflow-hidden">
-        <div className="p-6 border-b">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="mx-4 max-h-[80vh] w-full max-w-4xl overflow-hidden rounded-lg bg-white">
+        <div className="border-b p-6">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold">
               変更プレビュー - {getOperationLabel(operation)}
@@ -25,16 +25,16 @@ export function DiffViewer({ original, patched, operation, onApply, onReject }: 
               onClick={onReject}
               className="text-gray-400 hover:text-gray-600"
             >
-              <X className="h-5 w-5" />
+              <X className="size-5" />
             </button>
           </div>
         </div>
 
-        <div className="p-6 overflow-y-auto max-h-[60vh]">
+        <div className="max-h-[60vh] overflow-y-auto p-6">
           <div className="space-y-4">
             <div>
-              <h4 className="font-medium text-gray-900 mb-2">変更内容:</h4>
-              <div className="bg-gray-50 p-4 rounded-lg">
+              <h4 className="mb-2 font-medium text-gray-900">変更内容:</h4>
+              <div className="rounded-lg bg-gray-50 p-4">
                 <div className="prose max-w-none">
                   {diffChunks.map((chunk, index) => (
                     <span
@@ -50,20 +50,20 @@ export function DiffViewer({ original, patched, operation, onApply, onReject }: 
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid gap-4 md:grid-cols-2">
               <div>
-                <h4 className="font-medium text-gray-900 mb-2">変更前:</h4>
-                <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-                  <div className="text-sm text-gray-700 whitespace-pre-wrap">
+                <h4 className="mb-2 font-medium text-gray-900">変更前:</h4>
+                <div className="rounded-lg border border-red-200 bg-red-50 p-4">
+                  <div className="whitespace-pre-wrap text-sm text-gray-700">
                     {original}
                   </div>
                 </div>
               </div>
 
               <div>
-                <h4 className="font-medium text-gray-900 mb-2">変更後:</h4>
-                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                  <div className="text-sm text-gray-700 whitespace-pre-wrap">
+                <h4 className="mb-2 font-medium text-gray-900">変更後:</h4>
+                <div className="rounded-lg border border-green-200 bg-green-50 p-4">
+                  <div className="whitespace-pre-wrap text-sm text-gray-700">
                     {patched}
                   </div>
                 </div>
@@ -72,18 +72,18 @@ export function DiffViewer({ original, patched, operation, onApply, onReject }: 
           </div>
         </div>
 
-        <div className="p-6 border-t bg-gray-50 flex justify-end space-x-3">
+        <div className="flex justify-end space-x-3 border-t bg-gray-50 p-6">
           <button
             onClick={onReject}
-            className="px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+            className="rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 transition-colors hover:bg-gray-50"
           >
             破棄
           </button>
           <button
             onClick={onApply}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center"
+            className="flex items-center rounded-md bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
           >
-            <Check className="h-4 w-4 mr-2" />
+            <Check className="mr-2 size-4" />
             適用
           </button>
         </div>
