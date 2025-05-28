@@ -12,6 +12,9 @@ const nextConfig = {
     };
     return config;
   },
+  images: {
+    domains: ["lh3.googleusercontent.com", "via.placeholder.com"],
+  },
 };
 
 export default nextConfig;

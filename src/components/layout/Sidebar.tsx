@@ -42,6 +42,8 @@ export function Sidebar() {
             <Image
               src={user?.photoURL || 'https://via.placeholder.com/40'}
               alt={user?.displayName || 'User'}
+              width={40}
+              height={40}
               className="size-10 rounded-full"
             />
             <div className="min-w-0 flex-1">

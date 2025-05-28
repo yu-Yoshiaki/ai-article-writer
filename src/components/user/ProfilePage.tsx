@@ -46,6 +46,8 @@ export function ProfilePage() {
                     <Image
                       src={user.photoURL}
                       alt={user.displayName || 'User'}
+                      width={80}
+                      height={80}
                       className="size-20 rounded-full object-cover"
                     />
                   ) : (

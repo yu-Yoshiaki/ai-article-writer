@@ -83,6 +83,8 @@ export function Layout({ children }: LayoutProps) {
                       <Image
                         src={user.photoURL}
                         alt={user.displayName || 'User'}
+                        width={24}
+                        height={24}
                         className="size-6 rounded-full object-cover"
                       />
                     ) : (
