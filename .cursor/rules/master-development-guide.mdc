@@ -1,0 +1,35 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# AI Article Writer Development Guide
+
+## Primary Reference
+
+**IMPORTANT**: All development work on this project must follow the guidelines and workflows defined in [CLAUDE.md](mdc:CLAUDE.md).
+
+## Key Points
+
+- [CLAUDE.md](mdc:CLAUDE.md) contains the complete development guidelines, technology stack, and project structure
+- The new efficient development structure in [CLAUDE.md](mdc:CLAUDE.md) includes:
+  - 🚀 Usage methods for efficient development workflows
+  - File mapping system for minimizing context
+  - Feature-specific implementation guides
+  - Implementation templates
+
+## Development Workflow
+
+1. **Always read [CLAUDE.md](mdc:CLAUDE.md) first** before starting any development work
+2. Follow the "🚀 使用方法" section for efficient development workflows
+3. Use the structures/ directory system as defined in [CLAUDE.md](mdc:CLAUDE.md)
+4. Reference the specific implementation guides mentioned in [CLAUDE.md](mdc:CLAUDE.md)
+
+## Efficient Context Management
+
+- Use `structures/quick-reference.md` for rapid information access
+- Use `structures/file-mapping.md` to identify affected files
+- Use `structures/implementation-guides/` for detailed feature implementation
+- Use `structures/implementation-templates/` for consistent code patterns
+
+**No additional rules are needed** - [CLAUDE.md](mdc:CLAUDE.md) provides complete guidance for this project.
